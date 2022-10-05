@@ -52,7 +52,7 @@ function Param(
         
 }
 
-
+//decorators
 @Logger()
 @Component(2)
 export class User {
