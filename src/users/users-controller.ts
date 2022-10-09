@@ -5,9 +5,10 @@ import { HTTPError } from "../errors/http-error";
 import { ILogger } from "../logger/logger-interface";
 import { TYPES } from "../types";
 import 'reflect-metadata';
+import { IUser } from "./user-interface";
 
 @injectable()
-export class UserController extends BaseController {
+export class UserController extends BaseController implements IUser {
     constructor(@inject(TYPES.ILogger) private loggerService: ILogger) {
         super(loggerService);
         this.bindRoutes([
@@ -22,6 +23,6 @@ export class UserController extends BaseController {
         //this.ok<string>(res,'login is OK!');
     }
     register(req: Request, res: Response, next: NextFunction) {
-         this.ok<string>(res,'reg is OK!');
+        this.ok<string>(res, 'reg is OK!');
     }
 }
