@@ -7,9 +7,9 @@
   "scripts": {
     "start": "node ./dist/main.js",
     "lint": "eslint ./src/**",
-    "dev": "npx nodemon",
+    "dev": "nodemon",
     "lint:fix": "eslint ./src/** --fix",
-    "build": "npx tsc",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
