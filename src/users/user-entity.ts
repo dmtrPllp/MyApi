@@ -8,8 +8,8 @@ export class User {
 		return this._email;
 	}
 
-	public async setPassword(pass: string): Promise<void> {
-		this._password = await hash(pass, 10);
+	public async setPassword(pass: string, salt: string): Promise<void> {
+		this._password = await hash(pass, Number(salt));
 	}
 
 	get password(): string {

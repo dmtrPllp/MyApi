@@ -5,16 +5,14 @@ import { HTTPError } from '../errors/http-error';
 import { ILogger } from '../logger/logger-interface';
 import { TYPES } from '../types';
 import 'reflect-metadata';
-import { IUser } from './user-interface';
+import { IUserController } from './user-interface';
 import { UserLoginDto } from './dto/user-login_dto';
 import { UserRegisterDto } from './dto/user-register_dto';
-import { User } from './user-entity';
-import { IUserService } from './IUserService';
 import { UserService } from './users_service';
 import { ValidateMiddleware } from '../common/validate_middleware';
 
 @injectable()
-export class UserController extends BaseController implements IUser {
+export class UserController extends BaseController implements IUserController {
 	constructor(
 		@inject(TYPES.ILogger) private loggerService: ILogger,
 		@inject(TYPES.UserService) private userService: UserService,
