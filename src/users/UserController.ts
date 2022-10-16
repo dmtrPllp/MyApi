@@ -5,10 +5,10 @@ import { HTTPError } from '../errors/http-error';
 import { ILogger } from '../logger/logger-interface';
 import { TYPES } from '../types';
 import 'reflect-metadata';
-import { IUserController } from './user-interface';
+import { IUserController } from './IUserController';
 import { UserLoginDto } from './dto/user-login_dto';
 import { UserRegisterDto } from './dto/user-register_dto';
-import { UserService } from './users_service';
+import { UserService } from './UserService';
 import { ValidateMiddleware } from '../common/validate_middleware';
 
 @injectable()
@@ -47,6 +47,6 @@ export class UserController extends BaseController implements IUserController {
 		if (!result) {
 			return next(new HTTPError(422, 'Such user is already exist'));
 		}
-		this.ok(res, { email: result.email });
+		this.ok(res, { email: result.email, id: result.id });
 	}
 }
