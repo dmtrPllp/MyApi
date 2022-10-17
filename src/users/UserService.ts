@@ -6,6 +6,7 @@ import { IUserService } from './IUserService';
 import { User } from './entity';
 import { IUserRepository } from './IRep';
 import { UserModel } from '@prisma/client';
+import { UserLoginDto } from './dto/user-login_dto';
 
 @injectable()
 export class UserService implements IUserService {
@@ -24,7 +25,7 @@ export class UserService implements IUserService {
 			return null;
 		}
 	}
-	async validateUser(dto: UserRegisterDto): Promise<boolean> {
+	async validateUser(dto: UserLoginDto): Promise<boolean> {
 		return true;
 	}
 }
